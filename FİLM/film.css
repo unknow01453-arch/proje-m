@@ -1,0 +1,707 @@
+/* Genel Ayarlar */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle, #1a1a1a 0%, #050505 100%);
+    color: white;
+    min-height: 100vh;
+}
+
+/* Navigasyon Menüsü */
+nav {
+    background-color: #000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid #e50914; /* Film sitesi teması için kırmızı hat */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #e50914;
+}
+
+/* Sayfa İçerik Alanı */
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #e50914;
+}
+/* Film Listesi Düzeni (Yan yana getirme) */
+.film-listesi {
+    display: flex;
+    flex-wrap: wrap; /* Ekran dolunca alt satıra geçer */
+    justify-content: center; /* Ortalar */
+    gap: 20px; /* Kartlar arası boşluk */
+    margin-top: 30px;
+}
+
+/* Her Bir Film Kartı */
+.film-kart {
+    background-color: #222;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s; /* Üzerine gelince büyüme efekti için */
+    margin-top:20px;
+	width: 180px; /* Kart genişliği */
+}
+
+.film-kart:hover {
+    transform: scale(1.05); /* Mouse gelince hafif büyür */
+    border: 1px solid #e50914;
+}
+
+/* Resim Boyutları */
+.film-kart img {
+    width: 100%; /* Kartın genişliğine göre ayarlanır */
+    height: 250px; /* Sabit yükseklik vererek düzeni koruyoruz */
+    object-fit: cover; /* Resimlerin yamulmasını önler */
+    border-radius: 4px;
+}
+
+.film-kart p {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+/* Modal Arkaplanı */
+.modal {
+    display: none; /* Başta gizli */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* Arkayı karartır */
+}
+
+/* Modal Kutusu */
+.modal-icerik {
+    background-color: #222;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #e50914;
+    width: 50%;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+}
+
+/* Kapatma Butonu (X) */
+.kapat {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.kapat:hover { color: #e50914; }
+.film-kart img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    filter: grayscale(30%); /* Hafif siyah beyazımsı, nostaljik durur */
+    transition: 0.5s;
+}
+
+.film-kart:hover img {
+    filter: grayscale(0%); /* Üzerine gelince renkler canlanır */
+    box-shadow: 0 0 15px #e50914; /* Kırmızı bir parlama efekti */
+}
+/* Kategori Başlığı */
+.kategori-baslik {
+    text-align: left;
+    margin-left: 5%;
+    color: #e50914; /* Netflix kırmızısı */
+    font-size: 24px;
+    border-left: 5px solid #e50914;
+    padding-left: 15px;
+    margin-top: 40px;
+}
+
+/* Sayfa Ayracı */
+.ayrac {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(229, 9, 20, 0), rgba(229, 9, 20, 0.75), rgba(229, 9, 20, 0));
+    margin: 50px 0;
+}
+.haber-bandi {
+    background-color: #e50914;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.haber-baslik {
+    background: black;
+    padding: 5px 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    white-space: nowrap; /* Başlığın alt satıra geçmesini engeller */
+}
+
+marquee {
+    cursor: pointer;
+}
+.haber-bandi {
+    background-color: #e50914;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.haber-baslik {
+    background: black;
+    padding: 5px 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    white-space: nowrap; /* Başlığın alt satıra geçmesini engeller */
+}
+
+marquee {
+    cursor: pointer;
+}
+.haber-bandi {
+    background-color: #e50914;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.haber-baslik {
+    background: black;
+    padding: 5px 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    white-space: nowrap; /* Başlığın alt satıra geçmesini engeller */
+}
+
+marquee {
+    cursor: pointer;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+font-style-color:white;
+}
+/* Menü Çubuğu Ana Tasarımı */
+nav {
+    background: linear-gradient(to bottom, #141414, transparent); /* Yukarıdan aşağıya hafif şeffaf geçiş */
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center; /* Linkleri ortalar */
+    position: sticky; /* Sayfa kayınca tepede kalır */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Linklerin Görünüşü */
+nav a {
+    color: #e5e5e5;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Yumuşak geçiş efekti */
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent; /* Görünmez alt çizgi */
+}
+
+/* Üzerine Gelince (Hover) Efektleri */
+nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.8); /* Kırmızı parlama */
+    border-bottom: 2px solid #e50914; /* Kırmızı alt çizgi belirir */
+    transform: scale(1.1); /* Hafif büyüme */
+}
+
+/* O an bulunulan sayfa için (Aktif link) */
+nav a.active {
+    color: #e50914;
+    font-weight: bold;
+    border-bottom: 2px solid #e50914;
+}
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Hafif bir ışık efekti veren arka plan */
+    background: radial-gradient(circle at top, #221f1f 0%, #050505 100%);
+    color: white;
+    min-height: 100vh;
+}
+.dizi{background-color: #e5e5e5;}
+.ana-kapak {
+    height: 450px;
+    background: linear-gradient(to right, #000, transparent), url('kapak.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    margin-bottom: 40px;
+    border-bottom: 4px solid #e50914;
+	background-image:'strang.webp';
+}
+.kapak-icerik { max-width: 500px; text-align: left; }
+.bilgi-btn { background: rgba(255,255,255,0.2); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-left: 10px; }
+@keyframes süzül {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.film-kart, .ana-kapak, .container {
+    animation: süzül 1s ease-out;
+}
+
+/* Sayfa ilk açıldığında içeriklerin yavaşça belirmesi için */
+@keyframes sayfaGiris {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Tüm ana bölümlere bu efekti uygula */
+.ana-kapak, .kategori-baslik, .film-listesi, .haber-bandi {
+    animation: sayfaGiris 1.2s ease-out;
+}
+.ekle-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.ekle-btn:hover {
+    background: #555;
+}
+/* Ana Kapak İçindeki Esnek Yapı */
+.kapak-esnek-kutu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.kapak-icerik {
+    flex: 1;
+}
+
+.kapak-resim-alani {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.kapak-ana-resim {
+    width: 100%;
+    max-width: 450px; /* Resmin çok büyümemesi için */
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(229, 9, 20, 0.6); /* Kırmızı parlama efekti */
+    border: 2px solid #e50914;
+    transition: transform 0.5s;
+}
+
+.kapak-ana-resim:hover {
+    transform: scale(1.03); /* Üzerine gelince hafif büyüme */
+}
+
+/* Mobilde (telefonlarda) alt alta gelmesi için */
+@media (max-width: 768px) {
+    .kapak-esnek-kutu {
+        flex-direction: column;
+        text-align: center;
+    }
+    .kapak-resim-alani {
+        margin-top: 20px;
+    }
+}
+.site-footer {
+    background-color: #111;
+    color: #fff;
+    padding: 50px 0 20px 0;
+    margin-top: 50px;
+    border-top: 2px solid #e50914; /* Netflix kırmızısı çizgi */
+}
+
+.footer-icerik {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.footer-bolum {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-bolum h3 {
+    color: #e50914;
+    margin-bottom: 20px;
+}
+
+.footer-bolum ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-bolum ul li {
+    margin-bottom: 10px;
+}
+
+.footer-bolum ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-bolum ul li a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.sosyal-ikonlar a {
+    display: block;
+    color: #bbb;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.sosyal-ikonlar a:hover {
+    color: #e50914;
+}
+
+.footer-alt-bar {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+    color: #777;
+}
+button:hover {
+    transform: scale(1.05);
+    background: #ff0000;
+}
+.yilbasi-ozel {
+    background: linear-gradient(135deg, #0a2e0a 0%, #051a05 100%); /* Koyu çam yeşili */
+    padding: 30px;
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 1100px;
+    border: 3px dashed #d4af37; /* Altın rengi çerçeve */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.yilbasi-ozel h2 {
+    color: #d4af37;
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.yilbasi-ozel p {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Yılbaşı kartlarını biraz daha farklı yapalım */
+.yilbasi-kart {
+    border: 2px solid #e50914 !important;
+    background: #fff !important; /* Beyaz kar teması */
+}
+
+.yilbasi-kart p {
+    color: #333 !important; /* Beyaz kart üzerinde koyu yazı */
+}
+
+/* Basit bir Kar Tanesi Animasyonu */
+@keyframes karYagisi {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
+}
+
+.kar-tanesi {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    color: white;
+    font-size: 25px;
+    animation: karYagisi 5s linear infinite;
+    pointer-events: none;
+}
+.yilbasi-ozel {
+    position: relative; /* Kar tanelerinin buna göre hizalanması için şart */
+    overflow: hidden;    /* Dışarı taşan kar tanelerini gizler */
+}
+/* Yanıp sönen yılbaşı ışıkları */
+.isiklar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: radial-gradient(circle, #ff0000 2px, transparent 3px),
+                radial-gradient(circle, #00ff00 2px, transparent 3px),
+                radial-gradient(circle, #ffff00 2px, transparent 3px),
+                radial-gradient(circle, #ffffff 2px, transparent 3px);
+    background-size: 20px 20px;
+    animation: isikYanSön 1s steps(2) infinite;
+}
+
+@keyframes isikYanSön {
+    0% { opacity: 0.5; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(2px); }
+}
+
+/* Yılbaşı bölümüne özel font ve parıltı */
+.yilbasi-ozel h2 {
+    font-family: 'Mountains of Christmas', cursive, serif; /* Eğer bu font yoksa klasik bir serif kullanır */
+    color: #ffd700; /* Daha parlak bir altın */
+    letter-spacing: 2px;
+}
+
+/* Köşelere Çam Ağacı Süsü */
+.yilbasi-ozel::before {
+    content: "🎄";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+}
+
+.yilbasi-ozel::after {
+    content: "🎁";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+}
+.ana-kapak {
+    position: relative;
+    overflow: hidden; /* Dışarı taşanları gizle */
+    width: 100%;
+    height: 500px; /* Kapak yüksekliğine göre ayarla */
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Kayma hızı ve yumuşaklığı */
+    width: 100%;
+    height: 100%;
+}
+
+.slider-item {
+    min-width: 100%; /* Her film ekranı tam kaplasın */
+    height: 100%;
+    flex-shrink: 0;
+}
+
+/* Esnek kutu ayarların zaten vardır ama slider içinde düzgün durması için: */
+.kapak-esnek-kutu {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+.site-footer {
+    position: relative;
+    background: #141414;
+    padding-top: 50px; /* Karın içeriğin üstüne binmemesi için */
+    overflow: hidden;
+}
+
+.kar-birikintisi {
+    position: absolute;
+    top: -20px; /* Footer'ın biraz üstüne taşsın */
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: white;
+    /* Kar tepeleri oluşturmak için dairesel gradyanlar */
+    background: radial-gradient(circle at 20% 100%, white 40%, transparent 45%),
+                radial-gradient(circle at 50% 100%, white 50%, transparent 55%),
+                radial-gradient(circle at 80% 100%, white 40%, transparent 45%);
+    background-size: 50% 100%;
+    filter: blur(2px); /* Karın yumuşak görünmesi için hafif bulanıklık */
+    animation: karDalgalanma 5s ease-in-out infinite alternate;
+}
+
+/* Karın hafifçe hareket etmesi için animasyon */
+@keyframes karDalgalanma {
+    0% { transform: translateY(0) scaleY(1); }
+    100% { transform: translateY(5px) scaleY(1.1); }
+}
+
+/* Karanlık modda karın daha çok parlaması için */
+.dark-mode .kar-birikintisi {
+    box-shadow: 0 -10px 20px rgba(255, 255, 255, 0.2);
+}
+/* Film Kartı Konumlandırma */
+.film-kart {
+    position: relative; /* Rozeti içine sabitlemek için şart */
+    overflow: hidden;
+}
+
+/* Popülerlik Rozeti Stili */
+.rozet {
+    position: absolute;
+    top: 10px;
+    right: -30px; /* İlk başta biraz dışarıda */
+    background: linear-gradient(45deg, #f39c12, #d35400);
+    color: white;
+    padding: 5px 35px;
+    font-size: 10px;
+    font-weight: bold;
+    transform: rotate(45deg); /* Köşeli durması için */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 5;
+    text-transform: uppercase;
+    transition: right 0.3s ease;
+}
+
+/* Kartın üzerine gelince rozet içeri kaysın */
+.film-kart:hover .rozet {
+    right: -25px;
+}
+
+/* Puan Yıldızı Stili */
+.puan-yildiz {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #f1c40f;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.mood-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.mood-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.mood-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid #444;
+}
+
+.mood-buttons button:hover {
+    background: #e50914;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
+}
+/* Mood Picker Tasarımı */
+.mood-container { text-align: center; margin: 40px 0; }
+.mood-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+
+.mood-btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: 1px solid #444;
+    background: #1a1a1a;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mood-btn:hover, .mood-btn.active {
+    background: #e50914;
+    border-color: #e50914;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Film Kartı Geliştirmeleri */
+.film-kart {
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.film-kart:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+/* Rozet ve Puan */
+.puan-yildiz { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.8); padding: 4px 8px; border-radius: 4px; color: #f1c40f; font-weight: bold; }
+.rozet { position: absolute; top: 15px; right: -35px; background: #e50914; color: white; padding: 5px 40px; transform: rotate(45deg); font-size: 10px; font-weight: bold; }
+
+/* Yumuşak Geçiş Animasyonu */
+@keyframes kartGelis {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

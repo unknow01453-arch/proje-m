@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>SineFilm | Anasayfa</title>
+    <link rel="stylesheet" href="film.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Anasayfa</a>
+        <a href="hakkımda.html">Hakkımda</a>
+        <a href="iletişim.html">İletişim</a>
+    </nav>
+	
+	<div class="haber-bandi">
+    <div class="haber-baslik">SON DAKİKA:</div>
+    <marquee> 📢 Stranger Things 5. Sezon Volume 2 Yayınlandı! | 🎬 Batman 2 Çekimleri Başladı | 🏆 Dark, Yılın Bilim Kurgu Dizisi Seçildi 
+	|Stranger things 8.6 ımdb puani ile dünyanın sevilen dizisi oldu
+</marquee>
+<div id="favori-alani" style="display:none; padding: 20px; background: #111; border-bottom: 2px solid #e50914;">
+    <h2 class="kategori-baslik" style="margin-top:0;">İzleme Listem</h2>
+    <div id="favori-listesi" class="film-listesi">
+        </div>
+</div>
+</div>
+<div id="pencere" class="modal">
+    <div class="modal-content">
+        <span class="kapat" onclick="kapat()">&times;</span>
+        
+        <div class="modal-esnek-kutu">
+            <div class="modal-yazi">
+                <h2 id="filmBaslik"></h2>
+                <hr style="border:1px solid #e50914; width:50px; margin:10px 0;">
+                <p id="filmKonu"></p>
+                <p><strong>Oyuncular:</strong> <span id="filmOyuncu"></span></p>
+                <br>
+                <a href="#" id="modalIzleLink" target="_blank" class="izle-btn">Hemen İzle</a>
+            </div>
+            
+            <div class="modal-resim">
+                <img id="modalAfis" src="" alt="Film Afişi">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ana-kapak">
+    <div class="slider-wrapper" id="sliderWrapper">
+        <div class="slider-item active">
+            <div class="kapak-esnek-kutu">
+                <div class="kapak-icerik">
+                    <span class="etiket">HAFTANIN FAVORİSİ</span>
+                    <h1>STRANGER THINGS</h1>
+                    <p>Hawkins kasabasında gizemli olaylar devam ediyor. Upside Down dünyasına hazır mısın?</p>
+                    <div class="kapak-butonlar">
+                        <a href="https://netflix.com" target="_blank" class="izle-btn">Hemen İzle</a>
+                        <button class="bilgi-btn" onclick="bilgiVer('Stranger Things', 'Gizemli olaylar...', 'Millie B.', 'https://netflix.com', 'strang.webp')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+                <div class="kapak-resim-alani">
+                    <img src="strang.webp" class="kapak-ana-resim">
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-item">
+            <div class="kapak-esnek-kutu">
+                <div class="kapak-icerik">
+                    <span class="etiket">EFSANE SERİ</span>
+                    <h1>HARRY POTTER</h1>
+                    <p>Hogwarts Cadılık ve Büyücülük Okulu'nda macera başlıyor. Seçilmiş kişi olmaya hazır mısın?</p>
+                    <div class="kapak-butonlar">
+                        <a href="#" target="_blank" class="izle-btn">Hemen İzle</a>
+                        <button class="bilgi-btn" onclick="bilgiVer('Harry Potter', 'Büyücülük dünyası...', 'Daniel R.', '#', 'hp_kapak.webp')">Detaylı Bilgi</button>
+                    </div>
+                </div>
+                <div class="kapak-resim-alani">
+                    <img src="Harry-Potter.jpg" class="kapak-ana-resim">
+                </div>
+            </div>
+        </div>
+		<div class="slider-item">
+    <div class="kapak-esnek-kutu">
+        <div class="kapak-icerik">
+            <span class="etiket">KÜLT KLASİK</span>
+            <h1>FIGHT CLUB</h1>
+            <p>Uykusuzluktan muzdarip bir ofis çalışanı ve başına buyruk bir sabun satıcısı, kuralları yıkan gizli bir dövüş kulübü kuruyor.</p>
+            <div class="kapak-butonlar">
+                <a href="https://www.primevideo.com" target="_blank" class="izle-btn">Hemen İzle</a>
+                <button class="bilgi-btn" onclick="bilgiVer('Fight Club', 'Yeraltı dövüş kulübü dünyası...', 'Brad Pitt, Edward Norton', 'https://primevideo.com', 'fight_club_kapak.jpg')">Detaylı Bilgi</button>
+            </div>
+        </div>
+        <div class="kapak-resim-alani">
+            <img src="club.jpg" class="kapak-ana-resim">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+<footer>
+<footer class="site-footer">
+    <div class="kar-birikintisi"></div>
+    
+    <div class="footer-icerik">
+        <p>© 2025 Film Portalı | Tüm Hakları Saklıdır.</p>
+    </div>
+</footer>
+    <div style="margin-bottom: 15px;">
+        <a href="#" style="color:white; margin:0 10px; text-decoration:none;">Instagram</a> | 
+        <a href="#" style="color:white; margin:0 10px; text-decoration:none;">Twitter</a> | 
+        <a href="#" style="color:white; margin:0 10px; text-decoration:none;">YouTube</a>
+    </div>
+    <p>&copy; 2025 SineFilm Portal - [yağız KARAKOÇ] Tarafından Geliştirildi</p>
+</footer>
+    <div class="container">
+        <h1>Popüler Dizi ve Filmler</h1>
+        <p>En sevilen içerikler burada listelenecek.</p>
+    </div>
+	<div class="mood-container">
+    <p>Bugün nasıl hissediyorsun?</p>
+    <div class="mood-buttons">
+        <button onclick="modaGoreFiltrele('aksiyon')">🔥 Heyecanlı</button>
+        <button onclick="modaGoreFiltrele('duygusal')">😢 Duygusal</button>
+        <button onclick="modaGoreFiltrele('gizem')">🕵️ Gizemli</button>
+        <button onclick="modaGoreFiltrele('hepsi')">✨ Hepsi</button>
+    </div>
+</div>
+	<div class="container">
+        <h1>Popüler Dizi ve Filmler</h1>
+		<div style="margin-bottom: 30px;">
+<div style="margin-bottom: 30px;">
+    <input type="text" id="filmAramaCubugu" onkeyup="filtrele()" placeholder="Film veya dizi ara..." 
+           style="padding: 10px; width: 300px; border-radius: 20px; border: 1px solid #e50914; background: #222; color: white; outline: none;">
+</div> 
+<div class="mood-container">
+    <h3>Bugün nasıl hissediyorsun?</h3>
+    <div class="mood-buttons">
+        <button onclick="modaGoreFiltrele('hepsi')" class="mood-btn active">✨ Hepsi</button>
+        <button onclick="modaGoreFiltrele('aksiyon')" class="mood-btn">🔥 Heyecanlı</button>
+        <button onclick="modaGoreFiltrele('duygusal')" class="mood-btn">😢 Duygusal</button>
+        <button onclick="modaGoreFiltrele('gizem')" class="mood-btn">🕵️ Gizemli</button>
+    </div>
+</div>
+
+<div class="film-listesi">
+    <div class="film-kart" data-tur="aksiyon">
+        <div class="puan-yildiz">⭐ 8.8</div>
+        <div class="rozet">EFSANE</div>
+        <img src="club.jpg" alt="Fight Club">
+        <p>FIGHT CLUB</p>
+        <button onclick="bilgiVer('Fight Club', 'Dövüş Kulübü kuralları...', 'Brad Pitt', '#', 'fight.jpg')" class="izle-btn">Detaylar</button>
+    </div>
+
+    <div class="film-kart" data-tur="duygusal">
+        <div class="puan-yildiz">⭐ 7.7</div>
+        <div class="rozet">ROMANTİK</div>
+        <img src="500.jpg" alt="500 Days">
+        <p>500 DAYS OF SUMMER</p>
+        <button onclick="bilgiVer('500 Days...', 'Aşkın 500 günü.', 'Zooey D.', '#', '500.jpg')" class="izle-btn">Detaylar</button>
+    </div>
+
+    <div class="film-kart" data-tur="gizem">
+        <div class="puan-yildiz">⭐ 9.1</div>
+        <div class="rozet">YENİ</div>
+        <img src="shogun.jpg" alt="Shogun">
+        <p>SHOGUN</p>
+        <button onclick="bilgiVer('Shogun', 'Samuray dünyası.', 'Hiroyuki S.', '#', 'shogun.jpg')" class="izle-btn">Detaylar</button>
+    </div>
+</div>
+ 
+<div style="margin-top: 10px; text-align: center;">
+    <button onclick="sansliFilmSec()" style="padding: 10px 20px; border-radius: 20px; border: none; background: #e50914; color: white; cursor: pointer; font-weight: bold; transition: 0.3s;">
+        🎲 Günün Şanslı Filmini Seç
+    </button>
+</div>
+<div class="isiklar"></div>
+<div class="yilbasi-ozel">
+    <div class="kar-tanesi">❄</div>
+    <h2>🎄 Yılbaşı Özel Seçkisi 🎄</h2>
+    <p>Sıcak çikolatanızı alın ve bu klasikleri keşfedin!</p>
+    
+    <div class="film-listesi yilbasi-liste">
+        <div class="film-kart yilbasi-kart">
+            <div onclick="bilgiVer('Evde Tek Başına', 'Ailesi tatildeyken unutulan Kevinın, evini hırsızlara karşı dahice savunma hikayesi.', 'Macaulay Culkin', 'https://www.disneyplus.com', 'homealone.jpg')">
+                <img src="home.png" alt="Evde Tek Başına">
+                <p>EVDE TEK BAŞINA</p>
+            </div>
+            <button onclick="listeyeEkle('Evde Tek Başına', 'homealone.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+        </div>
+
+        <div class="film-kart yilbasi-kart">
+            <div onclick="bilgiVer('The Grinch', 'Yılbaşından nefret eden Grinchin, Noel kutlamalarını çalma planını anlatan eğlenceli animasyon.', 'Jim Carrey', 'https://www.netflix.com', 'grinch.jpg')">
+                <img src="grinçç.jpg" alt="The Grinch">
+                <p>THE GRINCH</p>
+            </div>
+            <button onclick="listeyeEkle('The Grinch', 'grinch.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+        </div>
+		<div class="film-kart yilbasi-kart">
+    <div onclick="bilgiVer('Violent Night', 'Bir grup paralı asker, zengin bir ailenin evine saldırınca, karşılarında hiç beklemedikleri birini bulurlar: Gerçek ve oldukça öfkeli bir Noel Baba!', 'David Harbour, John Leguizamo', 'https://www.primevideo.com', 'violentnight.jpg')">
+        <img src="violent.jpg" alt="Violent Night">
+        <p>VIOLENT NIGHT</p>
+    </div>
+    <button onclick="listeyeEkle('Violent Night', 'violentnight.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+    </div>
+</div>
+<div class="film-listesi">
+    <div class="film-kart" onclick="bilgiVer('Loki', 'Fesatlık tanrısı Loki, Avengers olaylarından sonra zaman çizelgesinde yolculuğa çıkar.', 'Tom Hiddleston, Owen Wilson')">
+        <img src="loki.jpg" alt="Loki">
+        <p>Loki</p>
+		<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+    </div>
+	
+	<div class="film-listesi">
+    <div class="film-kart" onclick="bilgiVer('Stranger Things',' 80'li yıllarda gizli deneyler ve paralel dünyadan gelen canavarlar.',
+ 'Millie Bobby Brown, Finn Wolfhard')">
+        <img src="stranger.jpg" alt="Stranger Things">
+        <p>Stranger Things</p>
+				<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+    </div>
+    </div>
+	<div class="film-listesi">
+    <div class="film-kart" onclick="bilgiVer('dark', 'Zamanda yolculuk ve kaybolan çocukların gizemli hikayesi.', 'Louis Hofmann')">
+        <img src="dark.jpg" alt="Dark">
+        <p>dark</p>
+				<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+		</div>
+		</div>
+		<div class="film-listesi">
+    <div class="film-kart" onclick="bilgiVer('grinç', 'Noel'den nefret eden yeşil bir yaratığın bayramı çalma planı..', 'Jim Carrey')">
+        <img src="grinç.jpg" alt="grinç">
+        <p>grinç</p>
+				<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+		</div>
+		</div>
+			<div class="film-listesi">
+
+    <div class="film-kart" onclick="bilgiVer('Interstellar', 'İnsanlığın geleceği için uzayda zamanla yarışan bir babanın yolculuğu.', 'Matthew McConaughey')">
+        <img src="inter.jpg" alt="Interstellar">
+        <p>Interstellar</p>
+				<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+		</div>
+		</div>
+			<div class="film-listesi">
+		<div class="film-kart" onclick="bilgiVer('Breaking Bad', 'Bir kimya öğretmeninin uyuşturucu imparatoru olma hikayesi.', 'Bryan Cranston, Aaron Paul')">
+    <img src="Breaking.jpg" alt="Breaking Bad">
+    <p>Breaking Bad</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+
+<div class="film-kart" onclick="bilgiVer('Better Call Saul', 'Avukat Jimmy McGill\'in yeraltı dünyasına inişini anlatan spin-off.', 'Bob Odenkirk')">
+    <img src="better.jpg" alt="Better Call Saul">
+    <p>Better Call Saul</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+
+<div class="film-kart" onclick="bilgiVer('How I Met Your Mother', 'Ted Mosby\'nin çocuklarına anneleriyle tanışma hikayesini anlatması.', 'Josh Radnor, Neil Patrick Harris')">
+    <img src="how.jpg" alt="How I Met Your Mother">
+    <p>How I Met Your Mother</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+
+<div class="film-kart" onclick="bilgiVer('Welcome to Derry', 'Stephen King\'in It evreninde geçen korku dolu maceralar.', 'TBD')">
+    <img src="welcome.jpg" alt="Welcome to Derry">
+    <p>Welcome to Derry</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+
+<div class="film-kart" onclick="bilgiVer('Hawkeye', 'Clint Barton\'ın yeni nesil bir okçuyu eğitirken başından geçenler.', 'Jeremy Renner, Hailee Steinfeld')">
+    <img src="hawkeye.webp" alt="Hawkeye">
+    <p>Hawkeye</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+
+<div class="film-kart" onclick="bilgiVer('The Big Bang Theory', 'Dört zeki ama sosyal beceriksiz bilim insanının komik hayatları.', 'Jim Parsons, Kaley Cuoco')">
+    <img src="thebig.jpg" alt="The Big Bang Theory">
+    <p>The Big Bang Theory</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+
+<div class="film-kart" onclick="bilgiVer('Inception', 'Rüyalar içinde rüya görerek zihin hırsızlığı yapan bir ekibin hikayesi.', 'Leonardo DiCaprio')">
+    <img src="in.webp" alt="Inception">
+    <p>Inception</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+
+
+<div class="film-kart" onclick="bilgiVer('The Witcher', 'Mutasyona uğramış bir canavar avcısı olan Geralt\'ın kader arayışı.', 'Henry Cavill')">
+    <img src=" the witch.jpg" alt="The Witcher">
+    <p>The Witcher</p>
+				<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'the witch.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+
+	
+</div>
+</div>
+	<div class="film-listesi">
+
+<div class="film-kart" onclick="bilgiVer('The Batman', 'Gotham şehrinde suçluların korkulu rüyası olan Batman\'in bir seri katilin peşine düşmesi.', 'Robert Pattinson')">
+    <img src="batman.jpg" alt="The Batman">
+    <p>The Batman</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Loki', 'loki.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+<div class="film-kart" onclick="bilgiVer('Sherlock', 'Modern dünyada yaşayan dahi dedektif Sherlock Holmes\'un gizemli davaları.', 'Benedict Cumberbatch')">
+    <img src="sherlok.jpg" alt="Sherlock">
+    <p>Sherlock</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('SHERLOCK', 'sherlok.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+<div class="film-kart" onclick="bilgiVer('DEXTER', 'Gündüzleri adli tıp uzmanı, geceleri ise seri katilleri avlayan bir adamın hikayesi.', 'Michael C. Hall')">
+    <img src="dexter.jpg" alt="dexter">
+    <p>DEXTER</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('dexter', 'dexter.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Narcos', 'Kolombiyanın uyuşturucu baronu Pablo Escobarın yükselişini ve ona karşı yürütülen amansız takibi anlatan gerçek bir hikaye.', 'Wagner Moura, Pedro Pascal', 'https://www.netflix.com', 'narcos.jpg')">
+        <img src="narcos.jpg" alt="Narcos">
+        <p>NARCOS</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Narcos', 'narcos.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Game of Thrones', 'Yedi krallığın kontrolünü ele geçirmek için verilen taht mücadeleleri ve kuzeyden gelen büyük tehdit.', 'Emilia Clarke, Kit Harington', 'https://www.blutv.com', 'got.jpg')">
+        <img src="game.webp" alt="Game of Thrones">
+        <p>GAME OF THRONES</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Game of Thrones', 'got.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+	<div class="film-kart">
+    <div onclick="bilgiVer('Peaky Blinders', 'Birinci Dünya Savaşı sonrası Birminghamda yükselen bir suç çetesinin ve liderleri Thomas Shelbynin hikayesi.', 'Cillian Murphy, Paul Anderson', 'https://www.netflix.com', 'peaky.jpg')">
+        <img src="peaky.jpg" alt="Peaky Blinders">
+        <p>PEAKY BLINDERS</p>
+    </div>
+    <a href="https://www.netflix.com" target="_blank" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Peaky Blinders', 'peaky.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Prison Break', 'İdam cezası alan abisini kurtarmak için dövmelerine gizlediği kaçış planıyla hapishaneye giren bir dahi.', 'Wentworth Miller, Dominic Purcell', 'https://www.disneyplus.com', 'prison.jpg')">
+        <img src="prison.webp" alt="Prison Break">
+        <p>PRISON BREAK</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Prison Break', 'prison.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Suits', 'Üniversiteyi bırakmış dahi Mike Rossun, New Yorkun en iyi avukatlarından Harvey Specter ile çalışma hikayesi.', 'Gabriel Macht, Patrick J. Adams', 'https://www.netflix.com', 'suits.jpg')">
+        <img src="suit.jpg" alt="Suits">
+        <p>SUITS</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Suits', 'suits.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('The Crown', 'Kraliçe II. Elizabethin saltanatını ve İngiliz kraliyet ailesinin siyasi ve kişisel dünyasını anlatan dram.', 'Claire Foy, Olivia Colman', 'https://www.netflix.com', 'crown.jpg')">
+        <img src="crown.jpg" alt="The Crown">
+        <p>THE CROWN</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('The Crown', 'crown.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Vikings', 'İskandinav efsanesi Ragnar Lothbrokun basit bir çiftçiden korkusuz bir krala dönüşme süreci ve keşifleri.', 'Travis Fimmel, Katheryn Winnick', 'https://www.netflix.com', 'vikings.jpg')">
+        <img src="VİKİNGS.jpg" alt="Vikings">
+        <p>VIKINGS</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Vikings', 'vikings.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('The Boys', 'Güçlerini kötüye kullanan süper kahramanları durdurmak için bir araya gelen kanunsuz bir ekibin intikam hikayesi.', 'Karl Urban, Jack Quaid', 'https://www.primevideo.com', 'theboys.jpg')">
+        <img src="boys.jpg" alt="The Boys">
+        <p>THE BOYS</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('The Boys', 'theboys.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+	<div class="film-listesi">
+<div class="film-kart" onclick="bilgiVer('THE walking DEAD', 'Zombi kıyameti sonrası hayatta kalmaya çalışan bir grubun amansız mücadelesi..', 'Andrew Lincoln, Norman Reedus')">
+    <img src="twd.jpg" alt="THE WALKİNG DEAD">
+    <p>THE WALKİNG DEAD</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('THE WALKİNG DEAD', 'twd.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+<div class="film-kart" onclick="bilgiVer('İT', 'Küçük bir kasabada çocukları avlayan korkunç palyaço pennywise karşı bir grup çocuğun mücadelesi', 'Bill Skarsgård, Finn Wolfhard')">
+    <img src="kop.jpg" alt="THE WALKİNG DEAD">
+    <p>İT</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('THE WALKİNG DEAD', 'twd.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+	<div class="film-listesi">
+<div class="film-kart" onclick="bilgiVer('FİGHT CLUB', 'Uykusuzluk çeken bir adamın, gizemli Tyler Durden ile tanışıp yeraltı dövüş kulübü kurmasıyla değişen hayatı.', 'Brad Pitt, Edward Norton')">
+    <img src="fight.jpg" alt="THE WALKİNG DEAD">
+    <p>FİGHT CLUB</p>
+			<div class="film-kart">
+    <div onclick="bilgiVer(...)">
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('THE WALKİNG DEAD', 'twd.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+</div>
+</div>
+<div class="film-listesi">
+    <div class="film-kart">
+        <div onclick="bilgiVer('Formula 1', '1970li yıllarda efsanevi rakipler James Hunt ve Niki Lauda arasındaki amansız rekabet.', 'Chris Hemsworth, Daniel Brühl', 'https://netflix.com', 'formula.png')">
+            <img src="formula.png" alt="Formula 1">
+            <p>FORMULA 1 (RUSH)</p>
+        </div>
+        <a href="#" class="izle-btn">İzle</a>
+        <button onclick="listeyeEkle('Formula 1', 'formula.png')" class="ekle-btn">➕ Listeme Ekle</button>
+    </div>
+
+    <div class="film-kart">
+        <div onclick="bilgiVer('The Walking Dead', 'Zombi kıyameti sonrası hayatta kalmaya çalışan bir grubun mücadelesi.', 'Andrew Lincoln', 'https://disneyplus.com', 'twd.jpg')">
+            <img src="twd.jpg" alt="The Walking Dead">
+            <p>THE WALKING DEAD</p>
+        </div>
+        <a href="#" class="izle-btn">İzle</a>
+        <button onclick="listeyeEkle('The Walking Dead', 'twd.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+    </div>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Enola Holmes', 'Sherlock Holmesun genç kız kardeşi Enolanın, kayıp annesini bulmak için çıktığı zekice ve macera dolu yolculuk.', 'Millie Bobby Brown, Henry Cavill', 'https://www.netflix.com', 'enola.jpg')">
+        <img src="enola.jpg" alt="Enola Holmes">
+        <p>ENOLA HOLMES</p>
+    </div>
+    <a href="https://www.netflix.com" target="_blank" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Enola Holmes', 'enola.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Spree', 'Sosyal medyada fenomen olmak isteyen bir taksi şoförünün kan donduran çılgın planı.', 'Joe Keery', 'https://www.netflix.com', 'spree.jpg')">
+        <img src="spree.avif" alt="Spree">
+        <p>SPREE</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Spree', 'spree.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+
+<div class="film-kart">
+    <div onclick="bilgiVer('[REC]', 'Bir itfaiye ekibini takip eden televizyon muhabirinin karantina altındaki bir binada yaşadığı korku dolu anlar.', 'Manuela Velasco', 'https://www.amazon.com', 'rec.jpg')">
+        <img src="rec.jpg" alt="REC">
+        <p>[REC]</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('[REC]', 'rec.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+
+<div class="film-kart">
+    <div onclick="bilgiVer('Harry Potter', 'Hogwarts Cadılık ve Büyücülük Okuluna başlayan genç bir çocuğun karanlık lorda karşı mücadelesi.', 'Daniel Radcliffe, Emma Watson', 'https://www.blutv.com', 'harrypotter.jpg')">
+        <img src="HARRY.avif" alt="Harry Potter">
+        <p>HARRY POTTER</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Harry Potter', 'harrypotter.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('La Casa De Papel', 'Profesör lakaplı bir dahi önderliğinde, İspanya Kraliyet Darphanesini hedef alan yüzyılın en büyük soygunu.', 'Ursula Corbero, Alvaro Morte', 'https://www.netflix.com', 'lacasa.jpg')">
+        <img src="lacasa.jpg" alt="La Casa De Papel">
+        <p>LA CASA DE PAPEL</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('La Casa De Papel', 'lacasa.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Avatar', 'Pandora gezegenini korumak için yeni bir savaşa giren Jake Sully ve ailesinin destansı su altı macerası.', 'Sam Worthington, Zoe Saldana', 'https://www.disneyplus.com', 'avatar.jpg')">
+        <img src="avatar.jpg" alt="Avatar">
+        <p>AVATAR</p>
+    </div>
+    <a href="#" class="izle-btn">İzle</a>
+    <button onclick="listeyeEkle('Avatar', 'avatar.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Shogun', 'Vahşi bir iç savaşın eşiğinde olan Japonya’da, gizemli bir şekilde karaya vuran İngiliz denizcinin samurayların dünyasına girişi.', 'Hiroyuki Sanada', 'https://www.disneyplus.com', 'shogun.jpg')">
+        <img src="shogun.jpg" alt="Shogun">
+        <p>SHOGUN</p>
+    </div>
+    <a href="javascript:void(0)" onclick="fragmanOynat('yAN5mZdxDlA')" class="izle-btn">🎬 Fragman</a>
+    <button onclick="listeyeEkle('Shogun', 'shogun.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Squid Game', 'Para sıkıntısı çeken yüzlerce oyuncu, ölümcül çocuk oyunlarında büyük ödül için yarışır.', 'Lee Jung-jae', 'https://www.netflix.com', 'squidgame.jpg')">
+        <img src="squidgame.jpg" alt="Squid Game">
+        <p>SQUID GAME</p>
+    </div>
+	
+    <a href="javascript:void(0)" onclick="fragmanOynat('oqxAJKy0ii4')" class="izle-btn">🎬 Fragman</a>
+    <button onclick="listeyeEkle('Squid Game', 'squidgame.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Oppenheimer', 'Atom bombasının babası J. Robert Oppenheimer’ın hikayesi.', 'Cillian Murphy', 'https://www.universalpictures.com', 'oppenheimer.jpg')">
+        <img src="oppen.jpg" alt="Oppenheimer">
+        <p>OPPENHEIMER</p>
+    </div>
+	
+    <a href="javascript:void(0)" onclick="fragmanOynat('uYPbbksJxIg')" class="izle-btn">🎬 Fragman</a>
+    <button onclick="listeyeEkle('Oppenheimer', 'oppenheimer.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('Dune: Part Two', 'Paul Atreides’in çöl gezegenindeki intikam ve liderlik savaşı.', 'Timothée Chalamet', 'https://www.warnerbros.com', 'dune2.jpg')">
+        <img src="dune2.jpg" alt="Dune 2">
+        <p>DUNE: PART TWO</p>
+    </div>
+    <a href="javascript:void(0)" onclick="fragmanOynat('Way9Dexny3w')" class="izle-btn">🎬 Fragman</a>
+    <button onclick="listeyeEkle('Dune 2', 'dune2.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div class="film-kart">
+    <div onclick="bilgiVer('(500) Days of Summer', 'Aşka inanmayan bir kadınla, ona aşık olan bir adamın 500 günlük sıra dışı, gerçekçi ve bazen de hüzünlü hikayesi.', 'Joseph Gordon-Levitt, Zooey Deschanel', 'https://www.disneyplus.com', '500days.jpg')">
+        <img src="500.jpg" alt="(500) Days of Summer">
+        <p>(500) DAYS OF SUMMER</p>
+    </div>
+    <a href="javascript:void(0)" onclick="fragmanOynat('PsD0NpFSADM')" class="izle-btn">🎬 Fragman</a>
+    <button onclick="listeyeEkle('(500) Days of Summer', '500days.jpg')" class="ekle-btn">➕ Listeme Ekle</button>
+</div>
+<div id="filmModal" class="modal">
+    <div class="modal-icerik">
+        <span class="kapat" onclick="kapat()">&times;</span>
+        <h2 id="modalBaslik"></h2>
+        <p><strong>Konu:</strong> <span id="modalKonu"></span></p>
+        <p><strong>Oyuncular:</strong> <span id="modalOyuncular"></span></p>
+    </div>
+</div>
+
+
+
+
+<script>
+        function bilgiVer(baslik, konu, oyuncu) {
+            document.getElementById("filmModal").style.display = "block";
+            document.getElementById("modalBaslik").innerHTML = baslik;
+            document.getElementById("modalKonu").innerHTML = konu;
+            document.getElementById("modalOyuncular").innerHTML = oyuncu;
+        }
+
+        function kapat() {
+            document.getElementById("filmModal").style.display = "none";
+        }
+		function muzikCal() {
+    var muzik = document.getElementById("arkaPlanMuzik");
+    var ikon = document.getElementById("muzik-ikon");
+    
+    if (muzik.paused) {
+        muzik.play();
+        ikon.innerText = "⏸️"; // Çalıyorsa duraklat ikonu
+        muzik.volume = 0.3; // Sesi %30 seviyesine ayarlar (bağırmasın diye)
+    } else {
+        muzik.pause();
+        ikon.innerText = "🎵"; // Duruyorsa nota ikonu
+    }
+}
+	function filtrele() {
+    // Arama kutusuna yazılanı al
+    let input = document.getElementById('filmAramaCubugu').value.toLowerCase();
+    
+    // Sayfadaki tüm film kartlarını bul
+    let kartlar = document.getElementsByClassName('film-kart');
+
+    // Hepsini tek tek kontrol et
+    for (let i = 0; i < kartlar.length; i++) {
+        // Kartın içindeki film adını (p etiketini) bul
+        let filmAdi = kartlar[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+
+        // Eğer yazılan kelime film adında varsa göster, yoksa gizle
+        if (filmAdi.includes(input)) {
+            kartlar[i].style.display = "";
+        } else {
+            kartlar[i].style.display = "none";
+        }
+    }
+}	
+		function sansliFilmSec() {
+    // Sayfadaki tüm film kartlarını bir listeye al
+    let kartlar = document.querySelectorAll('.film-kart');
+    
+    // Eğer sayfada hiç film yoksa uyarı ver
+    if (kartlar.length === 0) {
+        alert("Henüz listede film yok!");
+        return;
+    }
+
+    // Listeden rastgele bir sayı (index) seç
+    let rastgeleIndex = Math.floor(Math.random() * kartlar.length);
+    
+    // Seçilen rastgele film kartını bul
+    let secilenKart = kartlar[rastgeleIndex];
+
+    // O kartın içindeki "bilgiVer" fonksiyonunu tetikle (tıklanmış gibi yap)
+    // Not: Kartın içindeki tıklanabilir div'i bulup simüle ediyoruz
+    let tiklanabilirAlan = secilenKart.querySelector('div[onclick]');
+    if (tiklanabilirAlan) {
+        tiklanabilirAlan.click();
+    }
+}
+function karYagdir() {
+    // Sadece yılbaşı bölümünü seçiyoruz
+    const yilbasiAlani = document.querySelector('.yilbasi-ozel');
+    
+    // Eğer sayfada bu bölüm yoksa hata vermemesi için kontrol
+    if (!yilbasiAlani) return;
+
+    const tanesi = document.createElement('div');
+    tanesi.innerHTML = '❄';
+    tanesi.style.position = 'absolute'; // Bölümün içinde kalması için absolute
+    tanesi.style.left = Math.random() * 100 + '%';
+    tanesi.style.top = '-20px';
+    tanesi.style.color = 'white';
+    tanesi.style.userSelect = 'none';
+    tanesi.style.opacity = Math.random() * 0.7 + 0.3;
+    tanesi.style.fontSize = (Math.random() * 12 + 8) + 'px';
+    
+    // Hız ayarı (Bölüm kısa olduğu için daha hızlı düşmeliler)
+    const dusmeSuresi = Math.random() * 3 + 2;
+    tanesi.style.transition = `top ${dusmeSuresi}s linear, opacity ${dusmeSuresi}s`;
+    
+    yilbasiAlani.appendChild(tanesi);
+
+    setTimeout(() => {
+        tanesi.style.top = '100%'; // Sadece bölümün altına kadar iner
+        tanesi.style.opacity = '0';
+    }, 100);
+
+    setTimeout(() => {
+        tanesi.remove();
+    }, dusmeSuresi * 1000);
+}
+
+// YOĞUNLUK: Her 150 milisaniyede bir tane atar (Oldukça yoğun)
+setInterval(karYagdir, 150);
+		let mevcutIndex = 0;
+const sliderItems = document.querySelectorAll('.slider-item');
+const toplamSlider = sliderItems.length;
+
+function sonrakiSlayt() {
+    mevcutIndex++;
+    
+    // Eğer son filme geldiyse başa dön
+    if (mevcutIndex >= toplamSlider) {
+        mevcutIndex = 0;
+    }
+    
+    const kaymaMiktari = mevcutIndex * -100; // Sola %100, %200 diye kayar
+    document.getElementById('sliderWrapper').style.transform = `translateX(${kaymaMiktari}%)`;
+}
+
+// 5 saniyede bir değiştir (5000 milisaniye)
+setInterval(sonrakiSlayt, 3000);
+		
+		function modaGoreFiltrele(mod) {
+    const kartlar = document.querySelectorAll('.film-kart');
+    
+    kartlar.forEach(kart => {
+        // Kartın içindeki gizli tür bilgisini kontrol et
+        const tur = kart.getAttribute('data-tur');
+        
+        if (mod === 'hepsi' || tur === mod) {
+            kart.style.display = 'block'; // Göster
+            kart.style.animation = 'fadeIn 0.5s'; 
+        } else {
+            kart.style.display = 'none'; // Gizle
+        }
+    });
+}
+function modaGoreFiltrele(secilenMod) {
+    const kartlar = document.querySelectorAll('.film-kart');
+    const butonlar = document.querySelectorAll('.mood-btn');
+
+    // Butonların aktiflik durumunu değiştir
+    butonlar.forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.innerText.toLowerCase().includes(secilenMod)) btn.classList.add('active');
+    });
+
+    // Filtreleme yap
+    kartlar.forEach(kart => {
+        const filmTuru = kart.getAttribute('data-tur');
+        
+        if (secilenMod === 'hepsi' || filmTuru === secilenMod) {
+            kart.style.display = 'block';
+            kart.style.animation = 'kartGelis 0.5s ease forwards';
+        } else {
+            kart.style.display = 'none';
+        }
+    });
+}
+    </script>
+	<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+        style="position: fixed; bottom: 20px; right: 20px; background: #e50914; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer;">
+    ↑
+</button>
+<div class="container">
+    <h1>SineFilm Arşivi</h1>
+
+    <h2 class="kategori-baslik">Bilim Kurgu & Fantastik</h2>
+    <div class="film-listesi">
+        <div class="film-kart" onclick="bilgiVer('Inception', 'Zihin hırsızlığı...', 'Leo DiCaprio')">
+            <img src="in.webp">
+            <p>Inception</p>
+        </div>
+        </div>
+
+    <hr class="ayrac">
+
+    <h2 class="kategori-baslik">suç ve dram Dizileri</h2>
+    <div class="film-listesi">
+        <div class="film-kart" onclick="bilgiVer('Breaking Bad', 'Kimya öğretmeninin hikayesi...', 'Bryan Cranston')">
+            <img src="breaking.jpg">
+            <p>Breaking Bad</p>
+        </div>
+        </div>
+</div>
+function bilgiVer(baslik, konu, oyuncu, tur) {
+    document.getElementById("pencere").style.display = "block";
+    document.getElementById("filmBaslik").innerText = baslik;
+    document.getElementById("filmKonu").innerText = konu;
+    document.getElementById("filmOyuncu").innerText = oyuncu;
+    document.getElementById("modalTur").innerText = tur; // Yeni eklenen satır
+}
+<audio id="arkaPlanMuzik" loop>
+    <source src="sakin.mp3" type="audio/mpeg">
+</audio>
+
+<div id="muzik-kontrol" onclick="muzikCal()" style="position: fixed; bottom: 100px; right: 30px; background: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 50%; cursor: pointer; border: 1px solid #e50914; z-index: 1000; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+    <span id="muzik-ikon">🎵</span>
+</div>
+</body>
+</html>
+</body>
+</html>
