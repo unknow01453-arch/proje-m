@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<style>
+    /* 1. Global Ayarlar: Yazı Tipi ve Arka Plan */
+    body {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Daha modern yazı tipleri */
+        background-color: #f0f2f5; /* Hafif maviye çalan, gözü yormayan arka plan */
+        color: #333; /* Temel yazı rengi */
+    }
+
+    /* 2. Konteyner Özelleştirme */
+    .container {
+        background-color: #ffffff; /* Beyaz içerik alanı */
+        padding: 40px;
+        border-radius: 15px; /* Köşeleri yumuşat */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Hafif, derinlik katan gölge */
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    /* 3. Başlık Özelleştirme */
+    h1 {
+        font-weight: 700;
+        color: #2c3e50; /* Koyu lacivert başlık */
+        text-transform: uppercase; /* Tüm harfleri büyük yap */
+        letter-spacing: 1px; /* Harfler arası boşluk */
+    }
+
+    /* 4. Kart (Card) Özelleştirme */
+    .card {
+        border: 1px solid #e1e8ed; /* Çok hafif kenarlık */
+        border-radius: 12px; /* Kart köşelerini yumuşat */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekti için geçiş */
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* Fare üzerine gelince kartı hafifçe kaldır */
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Gölgemizi belirginleştir */
+    }
+
+    /* 5. Form Elemanları Özelleştirme */
+    .form-control, .form-select {
+        border-radius: 8px; /* Input köşelerini yumuşat */
+        border: 1px solid #ced4da;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #007bff; /* Odaklanınca Bootstrap mavisini kullan */
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+    }
+
+    /* 6. Buton Özelleştirme */
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        border-radius: 8px;
+        padding: 12px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Hoverda daha koyu mavi */
+    }
+
+    /* 7. Tablo Özelleştirme */
+    .table {
+        margin-top: 20px;
+    }
+
+    .table thead th {
+        background-color: #f8f9fa; /* Tablo başlığına hafif gri arka plan */
+        color: #495057;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid #e1e8ed;
+    }
+
+    .table tbody td {
+        vertical-align: middle; /* Hücre içeriklerini dikeyde ortala */
+    }
+
+    /* 8. Badge (Durum Etiketleri) Özelleştirme */
+    .badge {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        border-radius: 20px; /* Tam yuvarlak köşeler */
+    }
+
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berber Randevu Paneli</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; }
+        .card { border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .table-striped tbody tr:nth-of-type(odd) { background-color: rgba(0,0,0,.05); }
+    </style>
+</head>
+<body>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4 text-primary">Berber Randevu Takip Paneli</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-4">
+                <h4 class="card-title text-success">Yeni Randevu Ekle</h4>
+                <form>
+                    <div class="mb-3">
+                        <label for="musteriAdi" class="form-label">Müşteri Adı</label>
+                        <input type="text" class="form-label">Müşteri Adı</label>
+                        <input type="text" class="form-control" id="musteriAdi" placeholder="Örn: Ahmet Yılmaz">
+                    </div>
+                    <div class="mb-3">
+                        <label for="randevuSaati" class="form-label">Randevu Saati</label>
+                        <input type="time" class="form-control" id="randevuSaati">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hizmetTuru" class="form-label">Hizmet Türü</label>
+                        <select class="form-select" id="hizmetTuru">
+                            <option>Saç Kesimi</option>
+                            <option>Sakal Tıraşı</option>
+                            <option>Saç & Sakal</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Randevu Ekle</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card p-4">
+                <h4 class="card-title text-info">Bugünkü Randevular</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Müşteri Adı</th>
+                            <th>Saat</th>
+                            <th>Hizmet</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mehmet Demir</td>
+                            <td>10:00</td>
+                            <td>Saç Kesimi</td>
+                            <td><span class="badge bg-warning">Bekliyor</span></td>
+                        </tr>
+                        <tr>
+                            <td>Ali Koç</td>
+                            <td>11:30</td>
+                            <td>Saç & Sakal</td>
+                            <td><span class="badge bg-success">Tamamlandı</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+public class Randevu {
+    private String musteriAdi;
+    private String randevuSaati;
+    private String hizmetTuru;
+
+    // Constructor (Yapıcı Metot)
+    public Randevu(String musteriAdi, String randevuSaati, String hizmetTuru) {
+        this.musteriAdi = musteriAdi;
+        this.randevuSaati = randevuSaati;
+        this.hizmetTuru = hizmetTuru;
+    }
+
+    // Getter Metotları (Verilere erişmek için)
+    public String getMusteriAdi() { return musteriAdi; }
+    public String getRandevuSaati() { return randevuSaati; }
+    public String getHizmetTuru() { return hizmetTuru; }
+
+    @Override
+    public String toString() {
+        return "Randevu: " + musteriAdi + " - " + randevuSaati + " - " + hizmetTuru;
+    }
+}
+import java.util.ArrayList;
+import java.util.List;
+
+public class RandevuYonetimi {
+    private List<Randevu> randevular;
+
+    public RandevuYonetimi() {
+        randevular = new ArrayList<>();
+    }
+
+    // Yeni randevu ekleme metodu
+    public void randevuEkle(Randevu randevu) {
+        randevular.add(randevu);
+        System.out.println("Yeni randevu eklendi: " + randevu);
+    }
+
+    // Tüm randevuları listeleme metodu
+    public void randevulariListele() {
+        System.out.println("Bugünkü Randevular:");
+        for (Randevu r : randevular) {
+            System.out.println(r);
+        }
+    }
+
+    public static void main(String[] args) {
+        RandevuYonetimi yonetim = new RandevuYonetimi();
+
+        // Örnek randevular oluşturma
+        Randevu r1 = new Randevu("Mehmet Demir", "10:00", "Saç Kesimi");
+        Randevu r2 = new Randevu("Ali Koç", "11:30", "Saç & Sakal");
+
+        // Randevuları sisteme ekleme
+        yonetim.randevuEkle(r1);
+        yonetim.randevuEkle(r2);
+
+        // Randevuları listeleme
+        yonetim.randevulariListele();
+    }
+}
+</script>
+</body>
+</html>
